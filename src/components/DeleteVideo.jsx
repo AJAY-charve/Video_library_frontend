@@ -12,7 +12,7 @@ const DeleteVideo = () => {
     useEffect(() => {
         const fetchVideo = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/video/videos/${params.id}`);
+                const response = await axios.get(`https://video-library-api-eqd9.onrender.com/api/video/videos/${params.id}`);
                 setVideo(response.data.video);
             } catch (error) {
                 console.error('Error fetching video:', error);
@@ -23,7 +23,7 @@ const DeleteVideo = () => {
 
     const handleDeleteClick = async () => {
         try {
-            const response = await axios.delete(`http://localhost:4000/api/video/deletevideo/${params.id}`);
+            const response = await axios.delete(`https://video-library-api-eqd9.onrender.com/api/video/deletevideo/${params.id}`);
             toast.success(response.data.message, {
                 position: "top-center",
                 autoClose: 1000,

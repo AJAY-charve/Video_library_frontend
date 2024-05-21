@@ -18,7 +18,7 @@ const UserDashboard = () => {
     const select = useSelector((state) => state.store.videosCount)
 
     const VideoLoad = async () => {
-        const api = await axios.get(`http://localhost:4000/api/video/getvideo`)
+        const api = await axios.get(`https://video-library-api-eqd9.onrender.com/api/video/getvideo`)
         setVideos(api.data.videos)
     }
 

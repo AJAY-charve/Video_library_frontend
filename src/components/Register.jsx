@@ -15,7 +15,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:4000/api/users/register', {
+            await axios.post('https://video-library-api-eqd9.onrender.com/api/users/register', {
                 UserId,
                 UserName,
                 Email,
