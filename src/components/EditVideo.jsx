@@ -17,7 +17,7 @@ const EditVideo = () => {
     useEffect(() => {
         const fetchVideoData = async () => {
             try {
-                const response = await axios.get(`https://video-library-api-eqd9.onrender.com/api/video/videos/${params._id}`);
+                const response = await axios.get(`http://localhost:4000/api/video/videos/${params._id}`);
                 const video = response.data.video;
                 setVideoId(video.VideoId);
                 setTitle(video.Title);
@@ -37,7 +37,7 @@ const EditVideo = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const api = await axios.put(`https://video-library-api-eqd9.onrender.com/api/video/editvideo/${params._id}`, {
+            const api = await axios.put(`http://localhost:4000/api/video/editvideo/${params._id}`, {
                 VideoId,
                 Title,
                 Url,

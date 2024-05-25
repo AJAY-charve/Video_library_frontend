@@ -17,7 +17,7 @@ const AddVideo = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const api = await axios.post(`https://video-library-api-eqd9.onrender.com/api/video/addvideo`, {
+        const api = await axios.post(`http://localhost:4000/api/video/addvideo`, {
             VideoId,
             Title,
             Url,

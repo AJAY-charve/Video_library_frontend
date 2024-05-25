@@ -12,7 +12,7 @@ const AdminDashboard = () => {
 
     const fetchVideos = async () => {
         try {
-            const response = await axios.get('https://video-library-api-eqd9.onrender.com/api/video/getvideo');
+            const response = await axios.get('http://localhost:4000/api/video/getvideo');
             setVideos(response.data.videos);
         } catch (error) {
             console.error('Error fetching videos:', error);
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
 
     const logoutClick = async () => {
         try {
-            const api = await axios.post('https://video-library-api-eqd9.onrender.com/api/users/logout');
+            const api = await axios.post('http://localhost:4000/api/users/logout');
             toast.warn(api.data.message, {
                 position: "top-center",
                 autoClose: 1000,
