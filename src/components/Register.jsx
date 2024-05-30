@@ -35,7 +35,6 @@ const Register = () => {
             setTimeout(() => {
                 navigate('/login')
             }, 2000)
-            //console.log(api);
         } catch (error) {
             toast.error(error.response.data.message, {
                 position: "top-center",
@@ -47,7 +46,6 @@ const Register = () => {
                 progress: undefined,
                 theme: "dark",
             });
-            //console.log(error);
         }
     };
 

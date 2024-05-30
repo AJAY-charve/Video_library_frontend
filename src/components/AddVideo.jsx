@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from "axios"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AddVideo = () => {
 
@@ -26,7 +26,6 @@ const AddVideo = () => {
             Comments,
             Views
         })
-        //console.log(api.data.message)
         toast.success(api.data.message, {
             position: "top-center",
             autoClose: 1000,
@@ -84,8 +83,9 @@ const AddVideo = () => {
                         <div className='mb-4'>
                             <input value={Views} onChange={(e) => setViews(e.target.value)} type="text" className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500" placeholder="Enter Video Views" />
                         </div>
-                        <div className="flex justify-center">
+                        <div className="flex justify-between">
                             <button type="submit" className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Save</button>
+                            <Link to="/admindashboard" className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:bg-blue-600">Cancel</Link>
                         </div>
                     </form>
                 </div>

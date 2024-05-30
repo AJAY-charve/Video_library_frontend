@@ -80,29 +80,26 @@ const AdminDashboard = () => {
                     </div>
                 </div>
                 <div className="grid gap-6 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
-                    {videos.map((video) => (
+                    {videos.map((video) =>
                         <div key={video._id} className=" rounded-lg overflow-hidden bg-base-300 hover:bg-white hover:text-black hover:shadow-purple-500 shadow-2xl">
                             <div className="relative">
                                 <iframe
                                     className="w-full h-56"
                                     src={video.Url}
                                     title={video.Title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
                                 ></iframe>
                             </div>
                             <div className="p-4">
                                 <h3 className="text-xl font-semibold mb-3">{video.Title}</h3>
                                 <div className="flex justify-between">
                                     <Link
-                                        to={`/editvideo/${video._id}`}
+                                        to={`/editvideo/${video.VideoId}`}
                                         className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
                                     >
                                         Edit
                                     </Link>
                                     <Link
-                                        to={`/deletevideo/${video._id}`}
+                                        to={`/deletevideo/${video.VideoId}`}
                                         className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-200"
                                     >
                                         Delete
@@ -110,7 +107,7 @@ const AdminDashboard = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
+                    )}
                 </div>
             </div>
         </div>

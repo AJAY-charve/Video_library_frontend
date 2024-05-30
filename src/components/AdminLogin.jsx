@@ -35,7 +35,6 @@ const AdminLogin = () => {
                 navigate('/admindashboard');
             }, 2000);
         } catch (error) {
-            //console.log(error.response.data.message)
             toast.error(error.response.data.message, {
                 position: "top-center",
                 autoClose: 1500,

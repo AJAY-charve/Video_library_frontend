@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useCookies } from 'react-cookie';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Navbar = () => {
 
-    const [cookies, setCookies, removeCookies] = useCookies(["userName"])
+    const [cookies, setCookies, removeCookies] = useCookies("userName")
     const navigate = useNavigate()
 
     const logoutClick = () => {
@@ -41,9 +41,6 @@ const Navbar = () => {
                         </button>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52">
                             <li>
-                                <Link to="/" className="block py-2 px-4 text-gray-700 hover:bg-gray-100">Home</Link>
-                            </li>
-                            <li>
                                 {
                                     cookies["userName"] === undefined ?
                                         <Link to="/login" className="block py-2 px-4 text-gray-700 hover:bg-gray-100">Login</Link> :
@@ -59,7 +56,6 @@ const Navbar = () => {
                     <Link to="/" className="text-3xl font-bold text-red-600 hover:text-red-800 cursor-pointer rounded-2xl px-3 py-2">Video Library</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    {/* Add more navigation items here if needed */}
                 </div>
                 <div className="navbar-end hidden lg:flex space-x-4">
                     {

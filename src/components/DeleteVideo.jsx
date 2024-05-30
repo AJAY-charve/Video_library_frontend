@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const DeleteVideo = () => {
-    const [video, setVideo] = useState(null);
+    const [video, setVideo] = useState([]);
     let navigate = useNavigate();
     let params = useParams();
 
@@ -13,6 +13,7 @@ const DeleteVideo = () => {
         const fetchVideo = async () => {
             try {
                 const response = await axios.get(`http://localhost:4000/api/video/videos/${params.id}`);
+                console.log(response.data.video);
                 setVideo(response.data.video);
             } catch (error) {
                 console.error('Error fetching video:', error);
@@ -70,9 +71,6 @@ const DeleteVideo = () => {
                                     height="300"
                                     src={video.Url}
                                     title={video.Title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
                                     className="rounded-md"
                                 />
                             </div>

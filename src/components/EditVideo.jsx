@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const EditVideo = () => {
     const [VideoId, setVideoId] = useState('');
@@ -17,7 +17,7 @@ const EditVideo = () => {
     useEffect(() => {
         const fetchVideoData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/api/video/videos/${params._id}`);
+                const response = await axios.get(`http://localhost:4000/api/video/videos/${params.id}`);
                 const video = response.data.video;
                 setVideoId(video.VideoId);
                 setTitle(video.Title);
@@ -32,12 +32,12 @@ const EditVideo = () => {
         };
 
         fetchVideoData();
-    }, [params._id]);
+    }, [params.id]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const api = await axios.put(`http://localhost:4000/api/video/editvideo/${params._id}`, {
+            const api = await axios.put(`http://localhost:4000/api/video/editvideo/${params.id}`, {
                 VideoId,
                 Title,
                 Url,
@@ -122,13 +122,14 @@ const EditVideo = () => {
                                 placeholder="Enter Video Views"
                             />
                         </div>
-                        <div className="flex justify-center">
+                        <div className="flex justify-between">
                             <button
                                 type="submit"
                                 className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
                             >
-                                Save
+                                Update
                             </button>
+                            <Link to="/admindashboard" className="bg-red-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:bg-blue-600">Cancel</Link>
                         </div>
                     </form>
                 </div>

@@ -23,7 +23,6 @@ const Home = () => {
                     <div className="flex">
                         <input
                             className="shadow appearance-none border rounded-l-lg py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-full"
-                            id="email"
                             type="email"
                             placeholder="Enter your email address"
                         />
